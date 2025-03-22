@@ -32,7 +32,7 @@ public class Main {
 
 	public static int GetFinalFloor(String data){
 		int floor = 0 ; 
-
+		int howManyTimeSantaInBasement = 1;
 		char[] array = data.toCharArray();
 		for (int i=0; i<array.length; i++) {
 			if(array[i] =='('){
@@ -43,9 +43,14 @@ public class Main {
 				System.out.println("Error Unwanted Character found"); 
 			}
 
-			
+		
+			if(floor == -1 ){
+				// here we have to account for Starting the loop from 0 
+				System.out.println("Santa is in the basement!! at step number: "+ (i+ 1) + " , number of occurences" + howManyTimeSantaInBasement); 
+				howManyTimeSantaInBasement ++;
+			}
 		}
-				
+							
 		return floor;
 	}
 }
