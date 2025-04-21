@@ -1,5 +1,6 @@
 f = open("input.txt", "r")
 totalWantedSheets = 0 
+totalWantedRibbon = 0 
 
 for lines in f:
     l, w, h = map(int, lines.strip().split("x"))
@@ -12,4 +13,9 @@ for lines in f:
     
     totalWantedSheets += surfaceArea + slack
 
-print(totalWantedSheets)
+    dimensions = sorted([l, w, h])
+    ribbonToWrapPresent = 2 * (dimensions[0] + dimensions[1])
+    ribbonForBow = l * w * h  
+    totalWantedRibbon += ribbonToWrapPresent + ribbonForBow
+
+print(totalWantedSheets , " ", totalWantedRibbon)
